@@ -1,0 +1,39 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Dragon Survival - Resource Pack",
+    "description": "Modelos, texturas e animações das espécies Dragon Survival.",
+    "uuid": "a17c8e2d-4b63-4f90-9d21-6e8a0c3f5b72",
+    "version": [
+      0,
+      1,
+      4
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "b28d9f3e-5c74-40a1-ae32-7f9b1d4c6e83",
+      "version": [
+        0,
+        1,
+        4
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "6b67b410-76cb-4e8d-9b7d-3b46f58e5a11",
+      "version": [
+        0,
+        1,
+        4
+      ]
+    }
+  ]
+}

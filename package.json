@@ -1,9 +1,16 @@
 {
   "name": "minecraft-bedrock-rule-mob-ai",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "simulate": "node examples/simulate-zombie.js"
+    "simulate": "node examples/simulate-zombie.js",
+    "simulate:electric": "node examples/simulate-electric-dragon.js",
+    "simulate:all": "node examples/simulate-all-dragons.js",
+    "test": "node --test",
+    "simulate:social": "node examples/simulate-social-life.js",
+    "simulate:world": "node examples/simulate-world-systems.js",
+    "build:bedrock": "node scripts/build-bedrock-pack.js && node scripts/generate-species-assets.js",
+    "build:assets": "node scripts/generate-species-assets.js"
   }
 }

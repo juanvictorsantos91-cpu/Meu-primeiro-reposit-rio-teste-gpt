@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "dragon_survival:fire_dragon",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/dragon_fire"
+      },
+      "geometry": {
+        "default": "geometry.dragon_survival.fire"
+      },
+      "render_controllers": [
+        "controller.render.dragon_survival.fire"
+      ],
+      "spawn_egg": {
+        "texture": "dragon_survival:fire_dragon_spawn_egg"
+      },
+      "animations": {
+        "fire_idle": "animation.dragon_survival.fire.idle",
+        "fire_walk": "animation.dragon_survival.fire.walk",
+        "fire_fly": "animation.dragon_survival.fire.fly",
+        "fire_controller": "controller.animation.dragon_survival.fire"
+      },
+      "scripts": {
+        "animate": ["fire_controller"]
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+name: Dragon Survival Core Tests
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [feature/dragon-survival-core, feature/mis-bedrock-data-contract, dragon-survival/consolidated]
+
+jobs:
+  node-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build Bedrock script bundle
+        run: npm run build:bedrock
+      - name: Check Bedrock entry script syntax
+        run: node --check bedrock/behavior_pack/scripts/main.js
+      - name: Check generated core syntax
+        run: node --check bedrock/behavior_pack/scripts/core/adapters/bedrock/dragon-initializer.js
+      - name: Check social memory adapter syntax
+        run: node --check bedrock/behavior_pack/scripts/core/adapters/bedrock/social-memory-writer.js
+      - name: Run unit tests
+        run: npm test
+      - name: Run electric dragon simulation
+        run: npm run simulate:electric
+      - name: Run all dragon profiles simulation
+        run: npm run simulate:all
+      - name: Run social life simulation
+        run: npm run simulate:social
+      - name: Run integrated world systems simulation
+        run: npm run simulate:world

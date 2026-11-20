@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.dragon_survival.fire": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["fire_idle"],
+          "transitions": [
+            { "fly": "!query.is_on_ground" },
+            { "walk": "query.is_on_ground && query.modified_move_speed > 0.03" }
+          ]
+        },
+        "walk": {
+          "animations": ["fire_walk"],
+          "transitions": [
+            { "fly": "!query.is_on_ground" },
+            { "idle": "query.is_on_ground && query.modified_move_speed <= 0.03" }
+          ]
+        },
+        "fly": {
+          "animations": ["fire_fly"],
+          "transitions": [
+            { "idle": "query.is_on_ground && query.modified_move_speed <= 0.03" },
+            { "walk": "query.is_on_ground && query.modified_move_speed > 0.03" }
+          ]
+        }
+      }
+    }
+  }
+}

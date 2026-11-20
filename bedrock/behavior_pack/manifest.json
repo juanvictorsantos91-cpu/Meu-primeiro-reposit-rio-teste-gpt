@@ -1,0 +1,46 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Dragon Survival - Behavior Pack",
+    "description": "Ponte experimental entre o MIS/DBS e o Minecraft Bedrock.",
+    "uuid": "6b67b410-76cb-4e8d-9b7d-3b46f58e5a11",
+    "version": [
+      0,
+      1,
+      4
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "5c0b5f9a-0b3d-44a6-a1a2-3a9d78b1d9a2",
+      "version": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "b4a5d39e-2d5a-4d2d-9c87-6b2a5d4e9f10",
+      "version": [
+        0,
+        1,
+        4
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    }
+  ]
+}

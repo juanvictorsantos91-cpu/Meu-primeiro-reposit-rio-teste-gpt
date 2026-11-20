@@ -27,3 +27,23 @@ export function writeDragonGroupLeadership(entity, isLeader) {
   else entity.removeTag(tag);
   return isLeader;
 }
+
+
+/**
+ * Sincroniza a identidade persistida do grupo com uma entidade específica.
+ * Só marca a entidade como membro quando seu ID consta no registro ativo.
+ */
+export function writeDragonGroupState(entity, group) {
+  if (!entity || typeof entity.id !== "string" || !entity.id) {
+    throw new TypeError("Entidade precisa ter um ID válido.");
+  }
+  if (group == null || group.status !== "active" || !group.memberIds?.includes(entity.id)) {
+    writeDragonGroupMembership(entity, null);
+    writeDragonGroupLeadership(entity, false);
+    return { member: false, leader: false };
+  }
+  writeDragonGroupMembership(entity, group.id);
+  const isLeader = group.leaderId === entity.id;
+  writeDragonGroupLeadership(entity, isLeader);
+  return { member: true, leader: isLeader };
+}

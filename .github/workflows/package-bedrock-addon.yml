@@ -1,0 +1,35 @@
+name: Dragon Survival Bedrock Package
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/dragon-survival-core, feature/mis-bedrock-data-contract, dragon-survival/consolidated]
+    paths:
+      - "bedrock/**"
+      - "src/**"
+      - "scripts/package-bedrock-addon.js"
+      - "scripts/generate-species-assets.js"
+      - "package.json"
+      - ".github/workflows/package-bedrock-addon.yml"
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build Behavior Pack script bundle
+        run: npm run build:bedrock
+      - name: Create mcaddon
+        run: node scripts/package-bedrock-addon.js
+      - name: Upload installable package
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dragon-Survival-Prototype
+          path: dist/Dragon-Survival-Prototype.mcaddon
+          if-no-files-found: error
+          retention-days: 14
